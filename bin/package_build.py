@@ -424,7 +424,7 @@ if __name__ == "__main__":
 			"\n./package_build.py rockylinux\n\t\t\t[if data is from RockyLinux]"
 			"\n./package_build.py ibm-validated\n\t\t\t[if data is from IBM Validated Open Source List]"
 			"\n./package_build.py\n\t\t\t[for displaying this help]\n"
-						"\n./package_build.py zopencommunity\n\t\t\t[if data is from ZOSOpenCommunity]"
+			"\n./package_build.py zopencommunity\n\t\t\t[if data is from zopen community]"
 			"Example:\n./package_build.py RHEL_8_Package_List.json\n./package_build.py debian")
 	
 	print("Thanks for using SDT!")
