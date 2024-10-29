@@ -350,31 +350,31 @@ def pds(q):
 		print(f"Saved!\nfilename: {q}")
 
 def zopencommunity():
-		url = "https://raw.githubusercontent.com/zopencommunity/meta/main/docs/api/zopen_releases_latest.json"
-		try:
-				req = requests.get(url)
-				data = req.json()
-				if req.status_code == 404:
-						raise Exception("404 File not found")
-		except Exception as e:
-				print("Couldn't pull. Error: ", str(e))
-		else:
-				zopen_list = []
-				for release in data['release_data']:
-						for asset in data['release_data'][release]:
-								package_info = {
-										"packageName": release,
-										"description": f"This is a zopen community port of {release}. Visit https://github.com/zopencommunity/{release}port for more details.",
-										"version": asset['assets'][0]['version']
-								}
-								zopen_list.append(package_info)
+    url = "https://raw.githubusercontent.com/zopencommunity/meta/main/docs/api/zopen_releases_latest.json"
+    try:
+        req = requests.get(url)
+        data = req.json()
+        if req.status_code == 404:
+            raise Exception("404 File not found")
+    except Exception as e:
+        print("Couldn't pull. Error: ", str(e))
+    else:
+        zopen_list = []
+        for release in data['release_data']:
+            for asset in data['release_data'][release]:
+                package_info = {
+                    "packageName": release,
+                    "description": f"This is a zopen community port of {release}. Visit https://github.com/zopencommunity/{release}port for more details.",
+                    "version": asset['assets'][0]['version']
+                }
+                zopen_list.append(package_info)
 
-				file_name = 'zopencommunity.json'
-				file_path = f'{DATA_FILE_LOCATION}/{file_name}'
+        file_name = 'zopencommunity.json'
+        file_path = f'{DATA_FILE_LOCATION}/{file_name}'
 
-				with open(file_path, 'w') as file:
-						json.dump(zopen_list, file, indent=2)
-						print(f"Saved!\nfilename: {file_name}")
+        with open(file_path, 'w') as file:
+            json.dump(zopen_list, file, indent=2)
+            print(f"Saved!\nfilename: {file_name}")
 
 if __name__ == "__main__":
 	
